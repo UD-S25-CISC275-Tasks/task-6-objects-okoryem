@@ -39,7 +39,7 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    return (question.options.length === 0) ? true : question.options.includes(answer);
 }
 
 /**
