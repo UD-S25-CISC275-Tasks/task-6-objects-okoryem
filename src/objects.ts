@@ -70,7 +70,11 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    return (question.options.length === 0) ? 
+        "# " + question.name +
+        "\n" + question.body
+         : "# " + question.name +
+        "\n" + question.body + "\n" + question.options.map(option => `- ${option}`).join("\n");
 }
 
 /**
