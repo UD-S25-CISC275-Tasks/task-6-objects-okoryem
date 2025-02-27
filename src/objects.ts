@@ -82,9 +82,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    let ques: Question = {...question};
-    ques.name = newName;
-    return {...ques};
+    return {...question, name : newName};
 }
 
 /**
@@ -93,9 +91,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    let ques: Question = {...question};
-    (ques.published === true) ? ques.published = false : ques.published = true;
-    return {...ques};
+    return {...question, published : !question.published};
 }
 
 /**
@@ -105,11 +101,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    let ques: Question = {...oldQuestion};
-    ques.name = `Copy of ${ques.name}`;
-    ques.id = id;
-    ques.published = false;
-    return {...ques};
+    return {...oldQuestion, name : `Copy of ${oldQuestion.name}`, id : id, published : false};
 }
 
 /**
